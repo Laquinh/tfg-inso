@@ -1,0 +1,49 @@
+\input{base}
+
+\addbibresource{bibliography.bib}
+
+\begin{document}	
+	\baselineskip 1.35\baselineskip
+	
+	\frontmatter
+	
+	% cover
+	\input{chapters/cover}
+	
+	\mainmatter
+	
+	\pagenumbering{arabic}
+	
+	\input{chapters/acknowledgements}
+	
+	% Table of contents
+	\newpage{\pagestyle{empty}}
+	\setcounter{page}{1}
+	\tableofcontents
+	
+	% List of figures
+	\newpage{\pagestyle{empty}}
+	\addcontentsline{toc}{chapter}{\numberline{}Índice de figuras}
+	\listoffigures
+	
+	% List of tables
+	\newpage{\pagestyle{empty}}
+	\addcontentsline{toc}{chapter}{\numberline{}Índice de tablas}
+	\listoftables
+	
+	\input{chapters/abstract}
+	\input{chapters/glossary}
+	\input{chapters/notation}
+	\input{chapters/introduction}
+	\input{chapters/state-of-the-art}
+	\input{chapters/methodological-aspects}
+	\input{chapters/development}
+	\input{chapters/conclusions}
+	
+	% References
+	\newpage{\pagestyle{empty}}
+	\addcontentsline{toc}{chapter}{\numberline{}Referencias}
+	\printbibliography
+	
+	\input{chapters/annex}
+\end{document}
