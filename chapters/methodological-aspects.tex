@@ -8,21 +8,59 @@ Hacer anexo si son muchas.
 
 \section{Tecnologías empleadas}
 
-Electron, React, SQLite, GitHub, Webpack, MeCab.
+La aplicación se ha desarrollado utilizando mayoritariamente tecnologías \textit{web}, incluyendo a HTML y CSS. Estas tecnologías están bien asentadas entre los desarrolladores, lo que promueve la contribución al código por parte de los usuarios \citationNeeded. Además, estas tecnologías ofrecen enorme versatilidad a la hora de implementar una interfaz de usuario, y están pensadas para facilitar su adaptación a distintos tipos de dispositivos, incluyendo móviles \citationNeeded.
 
-\subsection{Licencia}
+\subsection{Electron}
 
-Al distribuir \textit{software}, es importante tener en cuenta la licencia que se utiliza al distribuirlo, ya sea en su forma binaria o compilada. Las licencias son textos que describen las formas en que los usuarios tienen permitido utilizar el \textit{software}. Estas licencias funcionan gracias a las leyes de \textit{copyright}.
+Aunque se utilicen tecnologías \textit{web}, la aplicación no se distribuye como un sitio web como tal, sino como un programa de escritorio. Esto es posible gracias a Electron, un \textit{framework} que, a la hora de compilar el proyecto, incrusta en el ejecutable una copia de Chromium, que será la que interprete los lenguajes \textit{web} cuando se inicie la aplicación. \citationNeeded
 
-Existen numerosos tipos de licencia, entre las cuales son especialmente relevantes en este trabajo las licencias de código abierto. Estas son licencias que permiten la libre distribución, uso o modificación del \textit{software}, así como de sus obras derivadas. Está claro que, para que un programa informático se pueda considerar de código abierto, es necesario dar acceso al código fuente al usuario, pues de lo contrario no podría modificarlo libremente como requiere la definición de \textit{código abierto}.
+Comparar con Tauri (¿y otros?). \todo
 
-Que un programa se distribuya con una licencia de código abierto puede suponer grandes ventajas que afectan de manera positiva tanto al usuario como al equipo de desarrollo:
+\subsection{TypeScript}
+
+Durante muchos años, JavaScript fue el lenguaje por excelencia para la ejecución de \textit{scripts} en sitios web. Sin embargo, este lenguaje tiene algunos inconvenientes \citationNeeded:
 
 \begin{enumerate}
 	\item 
 \end{enumerate}
 
-A grades rasgos, las licencias de código abierto se suelen dividir en dos categorías:
+Para solventar los puntos anteriores es que Microsoft decidió crear Typescript, un \textit{superset}\footnote{\todo} de JavaScript. Actualmente, Typescript está ganando popularidad y son muchos los desarrolladores que defienden su uso frente a su predecesor \citationNeeded.
+
+TypeScript se ha utilizado tanto en la parte de \textit{frontend} como de \textit{backend}, ya que así lo requiere el funcionamiento de Electron.
+
+\subsection{React}
+
+La aplicación desarrollada requiere de páginas dinámicas; es decir, páginas cuyo contenido depende de los datos que contenga la base de datos en el momento de su carga, y que permitan manipular el DOM\footnote{\todo} durante la ejecución y sin necesidad de recargar la página cada vez.
+
+Estos requisitos son tediosos de llevar a cabo cuando se utiliza JavaScript nativo \citationNeeded. Por ello se ha decidido utilizar un \textit{framework} diseñado precisamente para estos casos: React.
+
+Explicar un poco el funcionamiento de React. \todo
+
+\subsection{SQLite}
+
+Para almacenar los datos, es lo más sensato crear una base de datos \citationNeeded. Explicar sus lados positivos \todo.
+
+Para aplicaciones con bases de datos que se almacenan en el ordenador de usuario es lo más común utilizar SQLite \citationNeeded. Explicar su funcionamiento \todo.
+
+\subsection{GitHub}
+
+\subsection{Webpack}
+
+\subsection{MeCab}
+
+\subsection{Licencia}
+
+Al distribuir \textit{software}, es importante tener en cuenta la licencia que se utiliza al distribuirlo, ya sea en su forma binaria o compilada. Las licencias son textos que describen las formas en que los usuarios tienen permitido utilizar el \textit{software}. Estas licencias funcionan gracias a las leyes de \textit{copyright}.
+
+Existen numerosos tipos de licencia, entre las cuales son especialmente relevantes en este trabajo las licencias de código abierto. Estas son licencias que permiten la libre distribución, uso o modificación del \textit{software}, así como de sus obras derivadas \citationNeeded. Está claro que, para que un programa informático se pueda considerar de código abierto, es necesario dar acceso al código fuente al usuario, pues de lo contrario no podría modificarlo libremente como requiere la definición de \textit{código abierto}.
+
+Que un programa se distribuya con una licencia de código abierto puede suponer grandes ventajas que afectan de manera positiva tanto al usuario como al equipo de desarrollo \citationNeeded:
+
+\begin{enumerate}
+	\item 
+\end{enumerate}
+
+A grades rasgos, las licencias de código abierto se suelen dividir en dos categorías \citationNeeded:
 
 \begin{enumerate}
 	\item \textbf{Licencias permisivas}: Son licencias que permiten la distribución de las obras derivadas bajo cualquier licencia que decida aplicar el autor de la obra derivada, siempre que se cumpla una serie de condiciones, como mantener la atribución de los autores originales. En esta categoría entran licencias como la MIT o Apache 2.0.
