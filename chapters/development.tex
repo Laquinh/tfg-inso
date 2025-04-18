@@ -7,38 +7,38 @@ A continuación se muestran las distintas vistas por las que puede navegar el us
 
 \subsection{Vista \textit{home}}
 
-\todo Añadir imagen.
+\todo[Añadir imagen].
 
-Esta es la página que se muestra al iniciar la aplicación. En ella, \todo decidir diseño XD.
+Esta es la página que se muestra al iniciar la aplicación. En ella, \todo[Decidir diseño].
 
 \subsection{Vista de lectura}
 
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{view-reader.jpg}
-	\caption[Diagrama entidad-relación]{Vista de lectura. \todo Actualizar imagen.}
+	\caption[Diagrama entidad-relación]{Vista de lectura. \todo[Actualizar imagen].}
 \end{figure}
 
 Esta es la página donde el usuario seguramente invertira la mayor parte de su tiempo, pues aquí se realiza la principal actividad que promueve la aplicación: la lectura. En la parte izquierda de la página se encuentra el texto a leer. Las palabras que conforman el texto tienen un color de fondo que varía según el valor de \texttt{status} de esa palabra. A los valores entre $1$ y $5$ corresponden colores de rojo a verde, respectivamente. Al valor $98$ ('palabra ignorada') y al $98$ ('palabra aprendida') les corresponde el fondo blanco, de forma que no resalten en lo abosluto a los ojos del lector.
 
-Arriba a la derecha, se observa el formulario de datos de palabras. \todo Buscar un mejor nombre. Al clicar sobre una palabra en el texto, este formulario se actualizará para mostrar los datos sobre la palabra presionada: sus acepciones, lecturas, anotaciones, etc.
+Arriba a la derecha, se observa el formulario de datos de palabras. \todo[Buscar un mejor nombre]. Al clicar sobre una palabra en el texto, este formulario se actualizará para mostrar los datos sobre la palabra presionada: sus acepciones, lecturas, anotaciones, etc.
 
 Debajo de dicho formulario, se encuentra una página web embebida, la cual el usuario puede seleccionar al configurar el idioma. En principio, el usuario seleccionará un diccionario en línea. Al seleccionar el diccionario, se puede también insertar un parámetro de sustitución \texttt{\%s} en la URL, de forma que el diccionario incrustado también se actualice según la palabra presionada.
 
 Al actualizar el estado de una palabra, el color de fondo de todas las ocurrencias de la palabra en el texto se actualizará a tiempo real con una animación.
 
-Al realizar cambios sobre una palabra, las palabras desconocidas que aparecen en el texto antes de la palabra sobre la que se han realizado cambios se marcarán automáticamente como aprendidas. Esto es porque, evidentemente, dichas palabras anteriores ya han sido leídas por el usuario; y, si ha decidido aun así no consultarlas, es porque ya las conoce. De esta manera, el usuario no tendrá que marcarlas una por una. \todo Mejorar redacción.
+Al realizar cambios sobre una palabra, las palabras desconocidas que aparecen en el texto antes de la palabra sobre la que se han realizado cambios se marcarán automáticamente como aprendidas. Esto es porque, evidentemente, dichas palabras anteriores ya han sido leídas por el usuario; y, si ha decidido aun así no consultarlas, es porque ya las conoce. De esta manera, el usuario no tendrá que marcarlas una por una. \todo[Mejorar redacción].
 
 \subsection{Vista de configuración de idioma}
 
-\todo Añadir imagen.
+\todo[Añadir imagen].
 
-Esta es la página que se muestra al crear o modificar un idioma. \todo decidir diseño.
+Esta es la página que se muestra al crear o modificar un idioma. \todo[Decidir diseño].
 
 \subsection{Vista de configuración de texto}
 
-\todo Añadir imagen.
+\todo[Añadir imagen].
 
-Esta es la página que se muestra al importar o modificar un texto. \todo decidir diseño.
+Esta es la página que se muestra al importar o modificar un texto. \todo[Decidir diseño].
 
 \section{Arquitectura y diseño de base de datos}
 
@@ -47,7 +47,7 @@ Esta es la página que se muestra al importar o modificar un texto. \todo decidi
 A continuación, se expone el diseño de la base de datos de cada perfil de usuario.
 
 \begin{itemize}
-	\item \texttt{configuration}: Es la única entidad sin relaciones con otras tablas. Tiene dos elementos, \texttt{key} y \texttt{value}. \todo
+	\item \texttt{configuration}: Es la única entidad sin relaciones con otras tablas. Tiene dos elementos, \texttt{key} y \texttt{value}. \todo[Añadir casos de uso].
 	\item \texttt{language}: Contiene información sobre los idiomas que el usuario está estudiando. Tiene los siguientes atributos:
 		\begin{itemize}[label=$\star$]
 			\item \texttt{id}: Identificador único del idioma.
@@ -59,7 +59,7 @@ A continuación, se expone el diseño de la base de datos de cada perfil de usua
 			\item \texttt{whitespaces}: Expresión regular que describe los caracteres que denotan la separación entre palabras.
 			\item \texttt{intraword\_punctuation}: Expresión regular que describe los caracteres que, aun no siendo parte del alfabeto, pueden aparecer en medio de una palabra.
 			\item \texttt{template\_code}: Identificador de la plantilla utilizada como base para configurar el idioma.
-			\item \texttt{script\_name}: \todo
+			\item \texttt{script\_name}: \todo.
 			\item \texttt{text\_processors}: Lista de procesadores de texto que se ejecutan al importar textos en este idioma.
 			\item \texttt{word\_data\_provider}: Proveedor de datos de palabras que se utilizará para autocompletar el formulario de modificación de palabra cuando se consulte una nueva palabra en este idioma.
 		\end{itemize}
@@ -140,7 +140,7 @@ Para ello, se creó una clase \texttt{PluginManager} que, como su nombre indica,
 \begin{itemize}
 	\item \texttt{register}, para registrar un \textit{plugin}.
 	\item \texttt{registerTextProcessor}, para registrar un procesador de texto.
-	\item \texttt{registerWordDataProvider}, para registrar un proveedor de datos de palabras. \todo (Pensar un mejor nombre).	
+	\item \texttt{registerWordDataProvider}, para registrar un proveedor de datos de palabras. \todo[Pensar un mejor nombre].	
 \end{itemize}
 
 El \texttt{PluginManager} almacena un \textit{array} de todos los plugins registrados.

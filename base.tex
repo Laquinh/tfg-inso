@@ -39,6 +39,7 @@
 \usepackage[subfigure]{tocloft}
 \usepackage{url}
 \usepackage{xlop}
+\usepackage{xparse}
 
 \DeclareLanguageMapping{spanish}{spanish-apa}
 
@@ -231,4 +232,4 @@
 	
 \newcommand{\citationNeeded}{\textbf{[Cita requerida]}}
 
-\newcommand{\todo}{\textbf{[Por hacer]}}
+\NewDocumentCommand{\todo}{o}{\textbf{[Por hacer\IfValueT{#1}{: #1}]}}
