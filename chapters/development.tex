@@ -81,13 +81,65 @@ A continuación, se expone el diseño de la base de datos de cada perfil de usua
 	\caption[Diagrama entidad-relación]{Diagrama entidad-relación con notación \textit{Crow's foot}.}
 \end{figure}
 
-Diagrama frontend vs backend, incluir plugins, incluir sistema de archivos.
+\subsection{Sistema de \textit{plugins}}
+
+Para hacer posible el estudio de cualquier idioma, y como solicita la historia de usuario 2.1, se implementó un sistema de \textit{plugins} para modificar el funcionamiento de la aplicación según necesidades particulares de los usuarios.
+
+Existen dos tipos de funcionalidades que pueden implementar los \textit{plugins}:
+\begin{itemize}
+	\item \textbf{Procesadores de texto}: Se pueden llamar en el momento de importar un nuevo texto en la base de datos. Su objetivo es \textit{interceptar} el texto a importar y manipularlo según esté programado en el código del \textit{plugin}. Se proponen algunos casos de uso para este tipo de funcionalidad, y en el anexo se incluye el código correspondiente.
+	\begin{itemize}[label=$\star$]
+		\item Insertar caracteres de separación de palabras para idiomas que no utilicen espacios, como el japonés o los idiomas chinos.
+		\item Eliminar anotaciones irrelevantes para el usuario al importar texto de un formato distinto al texto plano, como el formato SRT para subtítulos.
+		\item Transformar el texto a otro sistema de escritura en el caso de idiomas que utilicen varios, como el serbio, que puede ser escrito tanto con el alfabeto cirílico como con el latino.
+	\end{itemize}
+	\item \textbf{Proveedores de datos de palabras}: Se pueden llamar al clicar sobre una palabra nueva para autocompletar el formulario de los datos sobre la palabra, de forma que el usuario no tenga que copiar manualmente las definiciones desde un diccionario.
+\end{itemize}
+
+Para ello, se creó una clase \texttt{PluginManager} que, como su nombre indica, gestiona la ejecución de los \textit{plugins} que cargue el usuario. Esta clase contiene un objeto \texttt{PluginManager.api}, que de manera simplificada tiene tres métodos:
+
+\begin{itemize}
+	\item \texttt{register}, para registrar un \textit{plugin}.
+	\item \texttt{registerTextProcessor}, para registrar un procesador de texto.
+	\item \texttt{registerWordDataProvider}, para registrar un proveedor de datos de palabras. \todo (Pensar un mejor nombre).	
+\end{itemize}
+
+El \texttt{PluginManager} almacena un \textit{array} de todos los plugins registrados.
+
+Los \textit{plugins} se ejecutan mediante el método \texttt{AsyncLocalStorage.run} de Node, que se encarga de separar el contexto del \textit{plugin} del del resto de la aplicación. Aunque estén en contextos distintos, el \textit{plugin} debe tener alguna forma de registrarse en el contexto principal. Para ello, antes de cargar los \textit{plugins}, se almacena una copia del objeto \texttt{PluginManager.api} en una variable global que después leerán los \textit{plugins}. Esta variable global se inicializa como un objeto \textit{proxy} que previene realizar modificaciones en la API.
+
+\begin{center}
+\begin{typescript}
+const sandboxProxy = (target: any) => {
+	const proxy = new Proxy(
+		target,
+		{
+			get(target: any, property: string, receiver: any): any
+			{
+				if (property in target)
+				{
+					return Reflect.get(target, property, receiver);
+				}
+				else
+				{
+					throw new Error('Property ' + property + ' not found');
+				}
+			},
+			set(target: any, property: string, value: any, receiver: any): any
+			{
+				throw new Error('Setting properties is not allowed');
+			},
+		}
+	);
+	
+	return proxy;
+};
+\end{typescript}
+\end{center}
+
+Diagrama frontend vs backend, incluir sistema de archivos.
 
 Todo con explicación, evidentemente.
-	
-\section{Implementación de necesidades lingüísticas}
-
-Relacionar historias de usuario con trozos del código, haciendo referencias a las hipótesis de Krashen.
 
 \section{Diseño UI/UX}
 
