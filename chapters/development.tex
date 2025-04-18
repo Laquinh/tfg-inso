@@ -1,6 +1,45 @@
 \chapter{Desarrollo del trabajo}  
 %\addcontentsline{toc}{chapter}{\numberline{}Desarrollo del trabajo}
 
+\section{Vistas de la aplicación}
+
+A continuación se muestran las distintas vistas por las que puede navegar el usuario de la aplicación.
+
+\subsection{Vista \textit{home}}
+
+\todo Añadir imagen.
+
+Esta es la página que se muestra al iniciar la aplicación. En ella, \todo decidir diseño XD.
+
+\subsection{Vista de lectura}
+
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{view-reader.jpg}
+	\caption[Diagrama entidad-relación]{Vista de lectura. \todo Actualizar imagen.}
+\end{figure}
+
+Esta es la página donde el usuario seguramente invertira la mayor parte de su tiempo, pues aquí se realiza la principal actividad que promueve la aplicación: la lectura. En la parte izquierda de la página se encuentra el texto a leer. Las palabras que conforman el texto tienen un color de fondo que varía según el valor de \texttt{status} de esa palabra. A los valores entre $1$ y $5$ corresponden colores de rojo a verde, respectivamente. Al valor $98$ ('palabra ignorada') y al $98$ ('palabra aprendida') les corresponde el fondo blanco, de forma que no resalten en lo abosluto a los ojos del lector.
+
+Arriba a la derecha, se observa el formulario de datos de palabras. \todo Buscar un mejor nombre. Al clicar sobre una palabra en el texto, este formulario se actualizará para mostrar los datos sobre la palabra presionada: sus acepciones, lecturas, anotaciones, etc.
+
+Debajo de dicho formulario, se encuentra una página web embebida, la cual el usuario puede seleccionar al configurar el idioma. En principio, el usuario seleccionará un diccionario en línea. Al seleccionar el diccionario, se puede también insertar un parámetro de sustitución \texttt{\%s} en la URL, de forma que el diccionario incrustado también se actualice según la palabra presionada.
+
+Al actualizar el estado de una palabra, el color de fondo de todas las ocurrencias de la palabra en el texto se actualizará a tiempo real con una animación.
+
+Al realizar cambios sobre una palabra, las palabras desconocidas que aparecen en el texto antes de la palabra sobre la que se han realizado cambios se marcarán automáticamente como aprendidas. Esto es porque, evidentemente, dichas palabras anteriores ya han sido leídas por el usuario; y, si ha decidido aun así no consultarlas, es porque ya las conoce. De esta manera, el usuario no tendrá que marcarlas una por una. \todo Mejorar redacción.
+
+\subsection{Vista de configuración de idioma}
+
+\todo Añadir imagen.
+
+Esta es la página que se muestra al crear o modificar un idioma. \todo decidir diseño.
+
+\subsection{Vista de configuración de texto}
+
+\todo Añadir imagen.
+
+Esta es la página que se muestra al importar o modificar un texto. \todo decidir diseño.
+
 \section{Arquitectura y diseño de base de datos}
 
 \subsection{Base de datos}
