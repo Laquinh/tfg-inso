@@ -41,12 +41,50 @@ En definitiva, aunque se han realizado modificaciones a la propuesta original de
 
 \section{Trabajos relacionados}
 
+La idea de crear una aplicación que haga del modelo monitor un método de estudio accesible no es del todo novedosa, ni tampoco reciente. A continuación se presentan una serie de trabajos que tienen unos objetivos similares a los que se tratan en el presente proyecto.
+
 \subsection{LingQ}
 
-\subsection{LWT}
+LingQ es una plataforma web para la lectura extensiva, creada por Steve Kaufmann y Mark Kaufmann en 2007, con las ideas del lingüista Krashen en mente \autocite{LingQ}. La plataforma contiene una gran variedad de recursos para utilizar como entrada por aquellos estudiantes de las lenguas más populares \autocite{clara2025}, en forma de cuentos, cursos, libros, programas de radio, y otros.
+
+\todo[Breve explicación de su uso]
+
+Una característica de esta plataforma, que la distingue de otras más populares como Duolingo es su falta de estructura \autocite{Karasimos}; el usuario decide en todo momento qué contenidos leer, buscando una lectura que les interese, y permitiendo que los elementos lingüísticos a aprender se adquieran automáticamente mediante la lectura, como recomienda el modelo monitor.
+
+LingQ es un servicio de pago; los usuarios deben pagar una cuota de mensual a bianual para tener acceso ilimitado a las funcionalidades \autocite{kabbasovna}.
+
+El más extenso análisis sobre LingQ es el compartido por Cristina Rodríguez Pastor \autocite{Pastor_2022}. En él, la autora explica cómo la metodología de estudio que promueve LingQ se asemeja a los valores que defiende Krashen en sus cinco hipótesis sobre la adquisición de idiomas.
+
+\subsection{Learning with Texts}
+
+En 2010, Francisco Javier Martínez Lago, aún siendo estudiante, comenzó a desarrollar una alternativa a LingQ, llamada \textit{Learning with Texts} o, por sus siglas, LWT. \autocite{LWT}
+
+Este \textit{software} se desarrolló en PHP. Mantiene las funcionalidades básicas de LingQ, pero tiene algunos cambios sustanciales en cuanto a la experiencia de usuario. En primer lugar, en lugar de accederse mediante internet, esta aplicación se instala en el ordenador del usuario. Además, mientras que LingQ solo permite el estudio de una selección limitada de idiomas, LWT ofrece la opción de configurar manualmente el comportamiento del idioma, de forma que se puede utilizar sea cual sea la lengua que desea adquirir el usuario.
+
+Además, debido a que la aplicación se liberó a dominio público por decisión del autor, han surgido numerosos \textit{forks}, alguno de los cuales llega a ser más popular que la versión original, como
+
+Aunque no se ha encontrado literatura científica que trate particularmente sobre LWT, al funcionar de manera tan similar a LingQ, las conclusiones obtenidas en los artículos previamente referenciados aplican también en este caso.
 
 \subsection{Lute}
 
-\subsection{Anki}
+La aplicación Lute, creada y desarrollada principalmente por Jeff Zohrab, nació como un \textit{fork} de LWT. Sin embargo, desde su versión 3, todo el código se migró a Python. \autocite{Lute}
 
-\subsection{Duolingo}
+La interfaz de usuario de Lute es bastante similar a la de LWT incluso después de la refactorización. \todo[Comparar ambos]
+
+\subsection{Relación con este trabajo}
+
+Como se observa, existen varias soluciones con unas ideas y experiencias para el usuario muy similares aparentemente. Sin embargo, todas ellas tienen puntos en que podrían mejorar.
+
+Se ha mencionado que Learning with Texts y Lute permiten estudiar cualquier idioma al usuario. Matizando algo más, permiten configurar los parámetros de cada idioma manualmente. Sin embargo, estos parámetros no son suficientes. Por ejemplo, debido a que estas herramientas procesan el texto separando palabras mediante espacios, los estudiantes de idiomas como el japonés, que no utiliza espacios, necesitarán utilizar aplicaciones de terceros para adaptar de antemano sus contenidos.
+
+Además, existen funciones de LingQ que no han podido ser replicados en las alternativas de código abierto:
+\begin{enumerate}
+	\item El autocompletado de la definición de las palabras consultadas es una tarea que parece dificultarse todavía en Lute. Esto es debido a que el autocompletado en LingQ depende de las definiciones que otros usuarios han introducido manualmente. Como en Lute no existe una comunidad en línea, no existe quien introduzca las definiciones antes que el usuario.
+	\item La instalación tanto de LWT como de Lute requiere conocimientos relativamente avanzados sobre informática, como la creación de una base de datos MySQL o ejecutar \textit{scripts} de Python dentro de un entorno, respectivamente. Aunque desde el punto de vista del desarrollador pueda dar la sensación de que son requisitos tan simples como seguir un tutorial, tener un proceso de instalación tedioso para personas sin experiencia digital supone que probablemente nunca lleguen a acceder al programa. \citationNeeded
+\end{enumerate}
+
+En cuanto a Lute, aunque la experiencia de usuario es mayormente más positiva que en el caso de LWT, sobre todo por sus tiempos de carga, todavía existen puntos de carencia, como el proceso de actualización, en el que el programa requiere que el usuario exporte todos los datos de la aplicación y los vuelva a importar después de la actualización, en lugar de actualizar automáticamente la base de datos sin suponer un esfuerzo por parte del estudiante.
+
+También se pueden plantear dudas sobre su priorización de tareas. Por ejemplo, la aplicación tiene implementado un sofisticado sistema para almacenar imágenes en el campo de definiciones. Esta funcionalidad supone un coste de mantenimiento en el largo plazo, y la literatura científica no parece respaldar su utilidad, ya que el método de lectura extensiva es especialmente útil en estudiantes con un nivel intermedio o avanzado \citationNeeded, los cuales deberán aprender palabras demasiado concretas como para poder entender su significado mediante una imagen.
+
+En definitiva, si bien cada solución tiene algunas ventajas frente a la anterior, todavía quedan numerosos frentes abiertos. Así, el objetivo de este Trabajo de Fin de Grado es explorar estos frentes y proponer una aplicación alternativa que los solucione sin sacrificar funcionalidades esenciales.
