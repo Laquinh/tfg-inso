@@ -17,6 +17,10 @@ Aunque se utilicen tecnologías \textit{web}, la aplicación no se distribuye co
 
 \todo[Comparar con Tauri (¿y otros?)].
 
+\subsection{Node.js}
+
+Se ha utilizado Node.js como intérprete de JavaScript. La principal motivación para esta decisión es que Electron obliga a utilizar esta tecnología. Node.js, además, cuenta con un repertorio de librerías inmenso \todo. Particularmente, existe una librería para utilizar MeCab (véase 3.2.8) desde Node mediante una API cómoda.
+
 \subsection{TypeScript}
 
 Durante muchos años, JavaScript fue el lenguaje por excelencia para la ejecución de \textit{scripts} en sitios web. Sin embargo, este lenguaje tiene algunos inconvenientes \autocite{10.1007/978-3-662-44202-9_11}: \todo
@@ -32,6 +36,8 @@ La aplicación desarrollada requiere de páginas dinámicas; es decir, páginas 
 Estos requisitos son tediosos de llevar a cabo cuando se utiliza JavaScript nativo \citationNeeded. Por ello se ha decidido utilizar un \textit{framework} diseñado precisamente para estos casos: React.
 
 \todo[Explicar un poco el funcionamiento de React].
+
+\todo[Explicar por qué se usa en lugar de Vue o Angular]
 
 \subsection{SQLite}
 
