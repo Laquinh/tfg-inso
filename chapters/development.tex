@@ -89,7 +89,7 @@ A continuación se muestran las distintas vistas por las que puede navegar el us
 
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{view-reader.jpg}
-	\caption[Diagrama entidad-relación]{Vista de lectura. \todo[Actualizar imagen].}
+	\caption[Vista de lectura]{Vista de lectura. \todo[Actualizar imagen].}
 \end{figure}
 
 Esta es la página donde el usuario seguramente invertira la mayor parte de su tiempo, pues aquí se realiza la principal actividad que promueve la aplicación: la lectura. En la parte izquierda de la página se encuentra el texto a leer. Las palabras que conforman el texto tienen un color de fondo que varía según el valor de \texttt{status} de esa palabra. A los valores entre $1$ y $5$ corresponden colores de rojo a verde, respectivamente. Al valor $98$ ('palabra ignorada') y al $98$ ('palabra aprendida') les corresponde el fondo blanco, de forma que no resalten en lo abosluto a los ojos del lector.
@@ -101,6 +101,15 @@ Debajo de dicho formulario, se encuentra una página web embebida, la cual el us
 Al actualizar el estado de una palabra, el color de fondo de todas las ocurrencias de la palabra en el texto se actualizará a tiempo real con una animación.
 
 Al realizar cambios sobre una palabra, las palabras desconocidas que aparecen en el texto antes de la palabra sobre la que se han realizado cambios se marcarán automáticamente como aprendidas. Esto es porque, evidentemente, dichas palabras anteriores ya han sido leídas por el usuario; y, si ha decidido aun así no consultarlas, es porque ya las conoce. De esta manera, el usuario no tendrá que marcarlas una por una. \todo[Mejorar redacción].
+
+\subsection{Vista de textos}
+
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{view-texts.png}
+	\caption[Vista de textos]{Vista de textos. \todo[Actualizar imagen].}
+\end{figure}
+
+En esta página, el usuario puede acceder a los distintos textos guardados, ordenados por carpetas. \todo[Leyes Gestalt y otros conceptos aplicados en el listado]
 
 \todo[Añadir las demás]
 
