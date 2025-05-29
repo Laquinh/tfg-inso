@@ -37,7 +37,11 @@ Estos requisitos son tediosos de llevar a cabo cuando se utiliza JavaScript nati
 
 \todo[Explicar un poco el funcionamiento de React].
 
-\todo[Explicar por qué se usa en lugar de Vue o Angular]
+Existen \textit{frameworks} alternativos que realizan tareas similares a las de React, como Angular, Vue o Next.js. De hecho, esta aplicación comenzó siendo desarrollada con EJS originalmente, aunque se migró a React al poco tiempo.
+
+En cuanto a Angular,
+
+Finalmente, Vue ofrece ventajas de rendimiento sobre React \autocite{Comparison}. No obstante, esta ganancia en el rendimiento sería prácticamente imperceptible, ya que, como se ha mencionado en 3.2.1, Electron es de por sí bastante costoso a nivel computacional y espacial. Además, la comunidad de desarrolladores es mucho más pequeña en Vue, lo que dificultaría solucionar problemas que tienden a ocurrir durante el desarrollo, o así como encontrar librerías como \todo[recordar nombre], que tienen una gran cantidad de trabajo por detrás.
 
 \subsection{SQLite}
 
@@ -51,9 +55,11 @@ El control de versiones consiste en gestionar, organizar y monitorizar las disti
 
 Para la realización de este proyecto, se ha escogido GitHub, el sitio web más popular para este propósito.
 
-\subsection{Webpack}
-
 \subsection{MeCab}
+
+La aplicación utiliza los espacios ya presentes en un texto para distinguir las palabras. Sin embargo, esta tarea que inicialmente puede parecer simple, no lo es tanto si se quiere mantener la agnosticidad de idiomas en el código. Esto se debe a que algunos idiomas, como el japonés o los idiomas chinos, no se utilizan espacios para separar las palabras.
+
+Para lidiar con esta situación, se deben utilizar programas dedicados a analizar un texto en dichos idiomas y separar las palabras mediante técnicas de lingüística computacional. Uno de estos programas es MeCab, que funciona para el japonés \todo[referencia]. La aplicación trae un \textit{plugin} por defecto que, utilizando MeCab por medio de una librería, logra insertar espacios a lo largo del texto, librando al usuario de realizar este procedimiento manualmente.
 
 \subsection{Licencia}
 
